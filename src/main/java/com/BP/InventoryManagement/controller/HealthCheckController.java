@@ -13,11 +13,6 @@ import java.util.List;
 @RequestMapping("")
 public class HealthCheckController {
 
-    private final DeviceServiceImpl service;
-    public HealthCheckController(DeviceServiceImpl service) {
-        this.service = service;
-    }
-
     @GetMapping("/")
     public String health() {
         return "I am working fine...";
@@ -27,10 +22,5 @@ public class HealthCheckController {
     public String[] sayHello() {
         String[] arr={"Hello","World!"};
         return  arr;
-    }
-
-    @GetMapping("/devicess")
-    public ResponseEntity<List<Device>> getAllDevices() {
-        return service.getAllDevices();
     }
 }
