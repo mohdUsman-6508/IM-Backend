@@ -22,7 +22,7 @@ public class ShelfServiceController {
         this.service = service;
     }
 
-    @PostMapping("/addShelfPosition")
+    @PostMapping("addShelfPosition")
     public ResponseEntity<?> addShelfPosition(@Valid @RequestBody ShelfPosition shelfPosition, BindingResult result) {
         if (result.hasErrors()) {
             return ResponseEntity.badRequest().body(
@@ -32,7 +32,7 @@ public class ShelfServiceController {
         return service.saveShelfPosition(shelfPosition);
     }
 
-    @PostMapping("/addShelf")
+    @PostMapping("addShelf")
     public ResponseEntity<?> addShelf(@Valid @RequestBody Shelf shelf, BindingResult result) {
         if (result.hasErrors()) {
             return ResponseEntity.badRequest().body(
@@ -42,37 +42,37 @@ public class ShelfServiceController {
         return service.saveShelf(shelf);
     }
 
-    @GetMapping("/getShelf/{name}")
+    @GetMapping("getShelf/{name}")
     public ResponseEntity<Shelf> getShelfByName(@PathVariable String name) {
         return service.getShelfByName(name);
     }
 
-    @GetMapping("/getShelfPosition/{name}")
+    @GetMapping("getShelfPosition/{name}")
     public ResponseEntity<ShelfPosition> getShelfPositionByName(@PathVariable String name) {
         return service.getShelfPositionByName(name);
     }
 
-    @GetMapping("/getAllShelves")
+    @GetMapping("getAllShelves")
     public ResponseEntity<List<Shelf>> getAllShelves() {
         return service.getShelf();
     }
 
-    @GetMapping("/getAllShelfPosition")
+    @GetMapping("getAllShelfPosition")
     public ResponseEntity<List<ShelfPosition>> getAllShelfPosition() {
         return service.getShelfPosition();
     }
 
-    @GetMapping("/getShelfById/{id}")
+    @GetMapping("getShelfById/{id}")
     public ResponseEntity<Shelf> getShelfById(@PathVariable Long id) {
         return service.getShelfById(id);
     }
 
-    @GetMapping("/getShelfPositionById/{id}")
+    @GetMapping("getShelfPositionById/{id}")
     public ResponseEntity<ShelfPosition> getShelfPositionById(@PathVariable Long id) {
         return service.getShelfPositionById(id);
     }
 
-    @PostMapping("/addShelfPositionToDevice/{deviceId}/{shelfPositionId}")
+    @PostMapping("addShelfPositionToDevice/{deviceId}/{shelfPositionId}")
     public ResponseEntity<?> addShelfPositionToDevice(@PathVariable Long deviceId, @PathVariable Long shelfPositionId) {
 //        @Valid
 //        ,BindingResult result
@@ -84,12 +84,12 @@ public class ShelfServiceController {
         return service.addShelfPositionToDevice(deviceId, shelfPositionId);
     }
 
-    @PostMapping("/addShelfToShelfPosition/{shelfId}/{shelfPositionId}")
+    @PostMapping("addShelfToShelfPosition/{shelfId}/{shelfPositionId}")
     public ResponseEntity<?> addShelfToShelfPosition( @PathVariable Long shelfId, @PathVariable Long shelfPositionId) {
         return service.addShelfToShelfPosition(shelfId, shelfPositionId);
     }
 
-    @GetMapping("/shelfSummary/{shelfId}")
+    @GetMapping("shelfSummary/{shelfId}")
     public ResponseEntity<List<Map<String,Object>>> getShelfSummary(@PathVariable Long shelfId) {
         return service.getShelfSummary(shelfId);
     }
