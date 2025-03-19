@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:4200")
-
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("")
 public class ShelfServiceController {
 
     private final ShelfServiceImpl service;
@@ -74,13 +74,6 @@ public class ShelfServiceController {
 
     @PostMapping("/addShelfPositionToDevice/{deviceId}/{shelfPositionId}")
     public ResponseEntity<?> addShelfPositionToDevice(@PathVariable Long deviceId, @PathVariable Long shelfPositionId) {
-//        @Valid
-//        ,BindingResult result
-//        if (result.hasErrors()) {
-//            return ResponseEntity.badRequest().body(
-//                    result.getAllErrors()
-//            );
-//        }
         return service.addShelfPositionToDevice(deviceId, shelfPositionId);
     }
 
