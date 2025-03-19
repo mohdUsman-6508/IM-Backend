@@ -20,7 +20,7 @@ public class DeviceController {
         this.service = service;
     }
 
-    @PostMapping("add")
+    @PostMapping("/add")
     public ResponseEntity<?> addDevice(@Valid @RequestBody Device device, BindingResult result) {
         if (result.hasErrors()) {
             return ResponseEntity.badRequest().body(
@@ -30,37 +30,37 @@ public class DeviceController {
         return service.saveDevice(device);
     }
 
-    @GetMapping("get/id/{id}")
+    @GetMapping("/get/id/{id}")
     public ResponseEntity<Device> getDevice(@PathVariable Long id) {
         return service.getDevice(id);
     }
 
-    @GetMapping("get/name/{name}")
+    @GetMapping("/get/name/{name}")
     public ResponseEntity<Device> getDeviceByName(@PathVariable String name) {
         return service.getDeviceByName(name);
     }
 
-    @PutMapping("modify/{id}")
+    @PutMapping("/modify/{id}")
     public ResponseEntity<Device> modifyDevice(@RequestBody Device device, @PathVariable Long id) {
         return service.modifyDevice(device, id);
     }
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Device> deleteDevice(@PathVariable Long id) {
         return service.deleteDevice(id);
     }
 
-    @GetMapping("getAllDevices")
+    @GetMapping("/getAllDevices")
     public ResponseEntity<List<Device>> getAllDevices() {
         return service.getAllDevices();
     }
 
-    @GetMapping("get/type/{type}")
+    @GetMapping("/get/type/{type}")
     public ResponseEntity<Device> getDeviceByType(@PathVariable String type) {
         return service.getDeviceByType(type);
     }
 
-    @GetMapping("inventory")
+    @GetMapping("/inventory")
     public ResponseEntity<List<Map<String, Object>>> getInventorySummary() {
         return service.inventorySummary();
     }
