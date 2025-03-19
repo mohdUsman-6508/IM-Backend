@@ -11,4 +11,12 @@ public class HealthCheckController {
     public String health() {
         return "I am working fine...";
     }
+
+    @GetMapping("/hello")
+    public String[] sayHello() {
+        String[] arr={"Hello","World!"};
+        return  arr;
+    }
+
+
 }
