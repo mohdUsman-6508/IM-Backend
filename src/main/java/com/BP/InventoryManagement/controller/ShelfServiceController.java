@@ -22,6 +22,11 @@ public class ShelfServiceController {
         this.service = service;
     }
 
+    @GetMapping("/")
+    public String health() {
+        return "I am working fine...";
+    }
+
     @PostMapping("/addShelfPosition")
     public ResponseEntity<?> addShelfPosition(@Valid @RequestBody ShelfPosition shelfPosition, BindingResult result) {
         if (result.hasErrors()) {

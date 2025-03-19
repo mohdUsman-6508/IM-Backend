@@ -19,6 +19,12 @@ public class DeviceController {
         this.service = service;
     }
 
+    @GetMapping("/")
+    public String health() {
+        return "I am working fine...";
+    }
+
+    g
     @PostMapping("/add")
     public ResponseEntity<?> addDevice(@Valid @RequestBody Device device, BindingResult result) {
         if (result.hasErrors()) {
